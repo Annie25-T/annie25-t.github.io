@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8" />
+  <title>Մայայի Մկրտություն և Տարեդարձ</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff9f9;
+      color: #333;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+      border: 1px solid #f3d3e2;
+      border-radius: 15px;
+    }
+    .calendar-month, .calendar-year {
+      text-align: center;
+      font-size: 24px;
+      color: #e7a9bb;
+    }
+    .symbol {
+      text-align: center;
+      margin: 10px 0;
+    }
+    .section {
+      margin: 20px 0;
+    }
+    .label {
+      font-weight: bold;
+      color: #e7a9bb;
+    }
+    .location, .church-details, .restaurant-details {
+      margin-left: 10px;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 16px;
+    }
+    .photo-gallery {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .photo-gallery img {
+      width: 200px;
+      border-radius: 12px;
+      margin: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="photo-gallery">
+    <img src="./photo1.jpg" alt="Մայա սպիտակ զգեստով">
+    <img src="./photo2.jpg" alt="Մայան տորթով">
+  </div>
+
+  <div class="calendar-month">Հունիս</div>
+  <div class="calendar-year">2025</div>
+
+  <div class="symbol">
+    <svg class="cross" viewBox="0 0 24 24" title="Խաչ" width="24" height="24">
+      <path d="M13 2h-2v5H6v2h5v13h2V9h5V7h-5z"/>
+    </svg>
+    <svg class="candle" viewBox="0 0 32 32" title="Մոմ" width="24" height="24">
+      <g>
+        <rect x="14" y="10" width="4" height="15" rx="1.5" fill="#e3b2b2"/>
+        <ellipse cx="16" cy="9" rx="1.2" ry="2" fill="#fbead7"/>
+        <ellipse cx="16" cy="7.7" rx="0.55" ry="0.7" fill="#efcba6"/>
+      </g>
+    </svg>
+    <svg class="dove" viewBox="0 0 40 40" title="Աղավնի" width="24" height="24">
+      <g>
+        <path d="M36 30c-2.5-8.3-9.5-8.5-13-8.5 0 0 3-4.5 1-8s-6-2-8 1-1 8.5 8 12.5c0 0-6.5 0-10.5-4.5 0 0-2 4.5 3 7.5s10.5 2 11.5 2c0 0 7.5 0.5 8.5-2zm-20.5-18a2 2 0 114 0 2 2 0 01-4 0z"
+          fill="#fff" stroke="#e7a9bb" stroke-width="1.2"/>
+        <ellipse cx="15.5" cy="13" rx="0.7" ry="1.2" fill="#e7a9bb"/>
+        <ellipse cx="37" cy="29" rx="0.8" ry="0.5" fill="#e7a9bb"/>
+        <ellipse cx="23" cy="34.5" rx="1.2" ry="0.3" fill="#f3d3e2"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="section">
+    <div class="label">Մկրտություն՝</div>
+    <div class="location">Սուրբ Հռիփսիմե եկեղեցի</div>
+    <div class="church-details">ք. Էջմիածին &nbsp;|&nbsp; 15:20</div>
+  </div>
+  <div class="section">
+    <div class="label">Ռեստորան՝</div>
+    <div class="location">«Մորենա»</div>
+    <div class="restaurant-details">ք. Մասիս &nbsp;|&nbsp; 17:30</div>
+  </div>
+  <div class="footer">
+    Սիրով հրավիրում ենք Ձեզ՝ ներկա գտնվելու<br>
+    մեր դստեր՝ Մայայի առաջին տարեդարձին և սուրբ մկրտությանը,<br>
+    կիսելու մեզ հետ այս օրվա ուրախությունն ու օրհնությունը։
+  </div>
+
+  <div class="photo-gallery">
+    <img src="./photo2.jpg" alt="Մայան տորթով">
+    <img src="./photo1.jpg" alt="Մայա սպիտակ զգեստով">
+  </div>
+
+  <div id="countdown" style="text-align:center; font-size:18px; margin-top:20px;"></div>
+
+  <script>
+    const countdown = document.getElementById("countdown");
+    const eventDate = new Date("2025-06-26T15:00:00+04:00");
+    function updateCountdown() {
+      const now = new Date();
+      const diff = eventDate - now;
+      if (diff <= 0) {
+        countdown.textContent = "Օրն արդեն եկել է՝ սիրով սպասում ենք Ձեզ։";
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+      countdown.textContent = `Մնացել է՝ ${days} օր, ${hours} ժ, ${minutes} ր, ${seconds} վ`;
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
